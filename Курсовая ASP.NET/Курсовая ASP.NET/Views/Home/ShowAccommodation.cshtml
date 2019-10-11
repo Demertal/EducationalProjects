@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Курсовая_ASP.NET.Accommodation>
+
+@{
+    ViewBag.Title = "Выезды";
+}
+<table class="table">
+    <tr>
+        <th>
+            Дата заселения
+        </th>
+        <th>
+            Дата выезда
+        </th>
+        <th>
+           Номер
+        </th>
+    </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SettlementDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepartureDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rooms.Number)
+            </td>
+        </tr>
+    }
+
+</table>

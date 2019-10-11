@@ -1,0 +1,27 @@
+﻿@model Курсовая_ASP.NET.Residents
+
+@{
+    ViewBag.Title = "Выселить";
+}
+
+<h3>Вы уверены что хотите выселить @Html.DisplayFor(model => model.Name) @Html.DisplayFor(model => model.Patronymic) @Html.DisplayFor(model => model.Surname) ?</h3>
+<div>
+    <hr />
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-actions no-color">
+            @Html.Label("Дата выселения", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-2">
+                <input type="date" class="form-control" id="DepartureDate" name="DepartureDate" />
+                @Html.ValidationMessage("DepartureDate");
+            </div>
+        </div>
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Выселить" class="btn btn-default" /> |
+                @Html.ActionLink("Назад", "Index")
+            </div>
+            }
+        </div>

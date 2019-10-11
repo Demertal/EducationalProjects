@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Курсовая_ASP.NET.Сleaning>
+
+@{
+    ViewBag.Title = "Уборка";
+}
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>День недели</th>
+        <th>Работник</th>
+        <th>Этаж</th>
+    </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DaysWeek.Day)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Employee.Name) @Html.DisplayFor(modelItem => item.Employee.Patronymic) @Html.DisplayFor(modelItem => item.Employee.Surname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Floors.Floor)
+            </td>
+        </tr>
+    }
+
+</table>

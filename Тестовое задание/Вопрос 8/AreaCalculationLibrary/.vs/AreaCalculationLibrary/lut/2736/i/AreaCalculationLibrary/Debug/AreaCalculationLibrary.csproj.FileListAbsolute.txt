@@ -1,0 +1,4 @@
+D:\ШАГ\Answers\Вопрос 8\AreaCalculationLibrary\.vs\AreaCalculationLibrary\lut\0\b\AreaCalculationLibrary\bin\Debug\AreaCalculationLibrary.dll
+D:\ШАГ\Answers\Вопрос 8\AreaCalculationLibrary\.vs\AreaCalculationLibrary\lut\0\i\AreaCalculationLibrary\Debug\AreaCalculationLibrary.csproj.CoreCompileInputs.cache
+D:\ШАГ\Answers\Вопрос 8\AreaCalculationLibrary\.vs\AreaCalculationLibrary\lut\0\i\AreaCalculationLibrary\Debug\AreaCalculationLibrary.csproj.CopyComplete
+D:\ШАГ\Answers\Вопрос 8\AreaCalculationLibrary\.vs\AreaCalculationLibrary\lut\0\i\AreaCalculationLibrary\Debug\AreaCalculationLibrary.dll

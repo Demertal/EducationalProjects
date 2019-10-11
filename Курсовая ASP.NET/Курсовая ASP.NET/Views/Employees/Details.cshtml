@@ -1,0 +1,42 @@
+﻿@model Курсовая_ASP.NET.Employee
+
+@{
+    ViewBag.Title = "Подробности";
+}
+
+<div  class="col-md-offset-2">
+    <h4>Работник @Html.DisplayFor(model => model.Name)  @Html.DisplayFor(model => model.Patronymic) @Html.DisplayFor(model => model.Surname)</h4>
+    <hr />
+    <p class="dir-role btn btn-default col-md-1">
+        @Html.ActionLink("Добавить", "AddСleaning", new { id = Model.Id })
+    </p><br/>
+        <table>
+            <tr>
+                <th class="col-md-1">
+                    Этаж
+                </th>
+                <th class="col-md-1">
+                    День недели
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model.Сleaning)
+            {
+                <tr>
+                    <td class="col-md-1">
+                        @Html.DisplayFor(modelItem => item.Floors.Floor)
+                    </td>
+                    <td class="col-md-2">
+                        @Html.DisplayFor(modelItem => item.DaysWeek.Day)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Удалить", "DeleteСleaning", new { id = item.Id }, new { @class = "dir-role" })
+                    </td>
+                </tr>
+            }
+        </table>
+    <p>
+        @Html.ActionLink("Назад", "Index")
+    </p>
+</div>

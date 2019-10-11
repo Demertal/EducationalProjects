@@ -1,0 +1,26 @@
+D:\ШАГ\AreaCalculationLibrary\.vs\AreaCalculationLibrary\lut\0\b\UnitTestProject\Debug\netcoreapp2.1\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+D:\ШАГ\AreaCalculationLibrary\.vs\AreaCalculationLibrary\lut\0\b\UnitTestProject\Debug\netcoreapp2.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+D:\ШАГ\AreaCalculationLibrary\.vs\AreaCalculationLibrary\lut\0\b\UnitTestProject\Debug\netcoreapp2.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+D:\ШАГ\AreaCalculationLibrary\.vs\AreaCalculationLibrary\lut\0\b\UnitTestProject\Debug\netcoreapp2.1\UnitTestProject.deps.json
+D:\ШАГ\AreaCalculationLibrary\.vs\AreaCalculationLibrary\lut\0\b\UnitTestProject\Debug\netcoreapp2.1\UnitTestProject.runtimeconfig.json
+D:\ШАГ\AreaCalculationLibrary\.vs\AreaCalculationLibrary\lut\0\b\UnitTestProject\Debug\netcoreapp2.1\UnitTestProject.runtimeconfig.dev.json
+D:\ШАГ\AreaCalculationLibrary\.vs\AreaCalculationLibrary\lut\0\b\UnitTestProject\Debug\netcoreapp2.1\UnitTestProject.dll
+D:\ШАГ\AreaCalculationLibrary\.vs\AreaCalculationLibrary\lut\0\i\UnitTestProject\Debug\netcoreapp2.1\UnitTestProject.csproj.CoreCompileInputs.cache
+D:\ШАГ\AreaCalculationLibrary\.vs\AreaCalculationLibrary\lut\0\i\UnitTestProject\Debug\netcoreapp2.1\UnitTestProject.AssemblyInfoInputs.cache
+D:\ШАГ\AreaCalculationLibrary\.vs\AreaCalculationLibrary\lut\0\i\UnitTestProject\Debug\netcoreapp2.1\UnitTestProject.AssemblyInfo.cs
+D:\ШАГ\AreaCalculationLibrary\.vs\AreaCalculationLibrary\lut\0\i\UnitTestProject\Debug\netcoreapp2.1\UnitTestProject.csproj.CopyComplete
+D:\ШАГ\AreaCalculationLibrary\.vs\AreaCalculationLibrary\lut\0\i\UnitTestProject\Debug\netcoreapp2.1\UnitTestProject.dll
+D:\ШАГ\AreaCalculationLibrary\.vs\AreaCalculationLibrary\lut\0\i\UnitTestProject\Debug\netcoreapp2.1\UnitTestProject.csprojAssemblyReference.cache
+D:\ШАГ\Answers\Вопрос 8\AreaCalculationLibrary\.vs\AreaCalculationLibrary\lut\0\i\UnitTestProject\Debug\netcoreapp2.1\UnitTestProject.csprojAssemblyReference.cache
+D:\ШАГ\Answers\Вопрос 8\AreaCalculationLibrary\.vs\AreaCalculationLibrary\lut\0\i\UnitTestProject\Debug\netcoreapp2.1\UnitTestProject.csproj.CoreCompileInputs.cache
+D:\ШАГ\Answers\Вопрос 8\AreaCalculationLibrary\.vs\AreaCalculationLibrary\lut\0\i\UnitTestProject\Debug\netcoreapp2.1\UnitTestProject.AssemblyInfoInputs.cache
+D:\ШАГ\Answers\Вопрос 8\AreaCalculationLibrary\.vs\AreaCalculationLibrary\lut\0\i\UnitTestProject\Debug\netcoreapp2.1\UnitTestProject.AssemblyInfo.cs
+D:\ШАГ\Answers\Вопрос 8\AreaCalculationLibrary\.vs\AreaCalculationLibrary\lut\0\i\UnitTestProject\Debug\netcoreapp2.1\UnitTestProject.dll
+D:\ШАГ\Answers\Вопрос 8\AreaCalculationLibrary\.vs\AreaCalculationLibrary\lut\0\b\UnitTestProject\Debug\netcoreapp2.1\Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+D:\ШАГ\Answers\Вопрос 8\AreaCalculationLibrary\.vs\AreaCalculationLibrary\lut\0\b\UnitTestProject\Debug\netcoreapp2.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+D:\ШАГ\Answers\Вопрос 8\AreaCalculationLibrary\.vs\AreaCalculationLibrary\lut\0\b\UnitTestProject\Debug\netcoreapp2.1\Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+D:\ШАГ\Answers\Вопрос 8\AreaCalculationLibrary\.vs\AreaCalculationLibrary\lut\0\b\UnitTestProject\Debug\netcoreapp2.1\UnitTestProject.deps.json
+D:\ШАГ\Answers\Вопрос 8\AreaCalculationLibrary\.vs\AreaCalculationLibrary\lut\0\b\UnitTestProject\Debug\netcoreapp2.1\UnitTestProject.runtimeconfig.json
+D:\ШАГ\Answers\Вопрос 8\AreaCalculationLibrary\.vs\AreaCalculationLibrary\lut\0\b\UnitTestProject\Debug\netcoreapp2.1\UnitTestProject.runtimeconfig.dev.json
+D:\ШАГ\Answers\Вопрос 8\AreaCalculationLibrary\.vs\AreaCalculationLibrary\lut\0\b\UnitTestProject\Debug\netcoreapp2.1\UnitTestProject.dll
+D:\ШАГ\Answers\Вопрос 8\AreaCalculationLibrary\.vs\AreaCalculationLibrary\lut\0\i\UnitTestProject\Debug\netcoreapp2.1\UnitTestProject.csproj.CopyComplete

@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Курсовая_ASP.NET.Rooms>
+
+@{
+    ViewBag.Title = "Номера";
+}
+
+@{
+    int countFreeNum = 0;
+    int countPartiallyFreeNum = 0;
+    int countBusyNum = 0;
+    foreach (var item in Model)
+    {
+        if (item.FreePlace == 0) {countBusyNum++;}
+        else if (item.FreePlace == item.RoomTypes.CountPlace)
+        {
+            countFreeNum++;
+        }
+        else
+        {
+            countPartiallyFreeNum++;
+
+        }
+    }
+}
+
+<label>Кол-во свободных номеров: @countFreeNum</label><br/>
+<label>Кол-во частично свободных номеров: @countPartiallyFreeNum</label><br />
+<label>Кол-во занятых номеров: @countBusyNum</label>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Телефон</th>
+            <th>Номер</th>
+            <th>Свободно мест</th>
+            <th>Этаж</th>
+            <th>Тип</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            string color = "black";
+            if (item.FreePlace == 0) {color = "red";}
+            else if (item.FreePlace != item.RoomTypes.CountPlace) { color = "orange"; }
+            <tr style="color: @color">
+                <td>@Html.DisplayFor(modelItem => item.Phone)</td>
+                <td>@Html.DisplayFor(modelItem => item.Number)</td>
+                <td>@Html.DisplayFor(modelItem => item.FreePlace)</td>
+                <td>@Html.DisplayFor(modelItem => item.Floors.Floor)</td>
+                <td>@Html.DisplayFor(modelItem => item.RoomTypes.Type)</td>
+            </tr>
+        }
+    </tbody>
+</table>

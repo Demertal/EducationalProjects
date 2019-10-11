@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище WholesaleStoreModelContainer" CdmEntityContainer="WholesaleStoreEntities">
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="WholesaleStoreModel.Products">
+        <MappingFragment StoreEntitySet="Products">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="PurchasePrice" ColumnName="PurchasePrice" />
+          <ScalarProperty Name="SalesPrice" ColumnName="SalesPrice" />
+          <ScalarProperty Name="IdUnitStorage" ColumnName="IdUnitStorage" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sales">
+      <EntityTypeMapping TypeName="WholesaleStoreModel.Sales">
+        <MappingFragment StoreEntitySet="Sales">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IdProduct" ColumnName="IdProduct" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+          <ScalarProperty Name="IdSeller" ColumnName="IdSeller" />
+          <ScalarProperty Name="DateSale" ColumnName="DateSale" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sellers">
+      <EntityTypeMapping TypeName="WholesaleStoreModel.Sellers">
+        <MappingFragment StoreEntitySet="Sellers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+          <ScalarProperty Name="Сommissions" ColumnName="Сommissions" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UnitStorages">
+      <EntityTypeMapping TypeName="WholesaleStoreModel.UnitStorages">
+        <MappingFragment StoreEntitySet="UnitStorages">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Query9Table">
+      <EntityTypeMapping TypeName="WholesaleStoreModel.Query9Table">
+        <MappingFragment StoreEntitySet="Query9Table">
+          <ScalarProperty Name="IdUnitStorage" ColumnName="IdUnitStorage" />
+          <ScalarProperty Name="SalesPrice" ColumnName="SalesPrice" />
+          <ScalarProperty Name="PurchasePrice" ColumnName="PurchasePrice" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductsCopy">
+      <EntityTypeMapping TypeName="WholesaleStoreModel.ProductsCopy">
+        <MappingFragment StoreEntitySet="ProductsCopy">
+          <ScalarProperty Name="IdUnitStorage" ColumnName="IdUnitStorage" />
+          <ScalarProperty Name="SalesPrice" ColumnName="SalesPrice" />
+          <ScalarProperty Name="PurchasePrice" ColumnName="PurchasePrice" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Query1">
+      <EntityTypeMapping TypeName="WholesaleStoreModel.Query1">
+        <MappingFragment StoreEntitySet="Query1">
+          <ScalarProperty Name="UnitStorage" ColumnName="UnitStorage" />
+          <ScalarProperty Name="SalesPrice" ColumnName="SalesPrice" />
+          <ScalarProperty Name="PurchasePrice" ColumnName="PurchasePrice" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Query2">
+      <EntityTypeMapping TypeName="WholesaleStoreModel.Query2">
+        <MappingFragment StoreEntitySet="Query2">
+          <ScalarProperty Name="UnitStorage" ColumnName="UnitStorage" />
+          <ScalarProperty Name="SalesPrice" ColumnName="SalesPrice" />
+          <ScalarProperty Name="PurchasePrice" ColumnName="PurchasePrice" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Query3">
+      <EntityTypeMapping TypeName="WholesaleStoreModel.Query3">
+        <MappingFragment StoreEntitySet="Query3">
+          <ScalarProperty Name="UnitStorage" ColumnName="UnitStorage" />
+          <ScalarProperty Name="SalesPrice" ColumnName="SalesPrice" />
+          <ScalarProperty Name="PurchasePrice" ColumnName="PurchasePrice" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Query7">
+      <EntityTypeMapping TypeName="WholesaleStoreModel.Query7">
+        <MappingFragment StoreEntitySet="Query7">
+          <ScalarProperty Name="PurchasePrice" ColumnName="PurchasePrice" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Query8">
+      <EntityTypeMapping TypeName="WholesaleStoreModel.Query8">
+        <MappingFragment StoreEntitySet="Query8">
+          <ScalarProperty Name="SalesPrice" ColumnName="SalesPrice" />
+          <ScalarProperty Name="FullName" ColumnName="FullName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="Query10" FunctionName="Хранилище WholesaleStoreModel.Query10" />
+    <FunctionImportMapping FunctionImportName="Query11" FunctionName="Хранилище WholesaleStoreModel.Query11" />
+    <FunctionImportMapping FunctionImportName="Query12" FunctionName="Хранилище WholesaleStoreModel.Query12" />
+    <FunctionImportMapping FunctionImportName="Query4" FunctionName="Хранилище WholesaleStoreModel.Query4">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WholesaleStoreModel.Query4_Result">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Surname" ColumnName="Surname" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+          <ScalarProperty Name="Сommissions" ColumnName="Сommissions" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Query5" FunctionName="Хранилище WholesaleStoreModel.Query5">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WholesaleStoreModel.Query5_Result">
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="PurchasePrice" ColumnName="PurchasePrice" />
+          <ScalarProperty Name="SalesPrice" ColumnName="SalesPrice" />
+          <ScalarProperty Name="DateSale" ColumnName="DateSale" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Query6" FunctionName="Хранилище WholesaleStoreModel.Query6">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="WholesaleStoreModel.Query6_Result">
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="PurchasePrice" ColumnName="PurchasePrice" />
+          <ScalarProperty Name="SalesPrice" ColumnName="SalesPrice" />
+          <ScalarProperty Name="DateSale" ColumnName="DateSale" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+          <ScalarProperty Name="profit" ColumnName="profit" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Query6Main" FunctionName="Хранилище WholesaleStoreModel.Query6Main" />
+    <FunctionImportMapping FunctionImportName="Query9" FunctionName="Хранилище WholesaleStoreModel.Query9" />
+  </EntityContainerMapping>
+</Mapping>

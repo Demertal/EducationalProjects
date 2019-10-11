@@ -1,0 +1,24 @@
+D:\ШАГ\Итоговая WinForms Луков Павел\Итоговая WinForms Луков Павел\bin\Debug\Итоговая WinForms Луков Павел.exe.config
+D:\ШАГ\Итоговая WinForms Луков Павел\Итоговая WinForms Луков Павел\bin\Debug\Итоговая WinForms Луков Павел.exe
+D:\ШАГ\Итоговая WinForms Луков Павел\Итоговая WinForms Луков Павел\bin\Debug\Итоговая WinForms Луков Павел.pdb
+D:\ШАГ\Итоговая WinForms Луков Павел\Итоговая WinForms Луков Павел\obj\Debug\Итоговая_WinForms_Луков_Павел.Form1.resources
+D:\ШАГ\Итоговая WinForms Луков Павел\Итоговая WinForms Луков Павел\obj\Debug\Итоговая_WinForms_Луков_Павел.Properties.Resources.resources
+D:\ШАГ\Итоговая WinForms Луков Павел\Итоговая WinForms Луков Павел\obj\Debug\Итоговая WinForms Луков Павел.csproj.GenerateResource.cache
+D:\ШАГ\Итоговая WinForms Луков Павел\Итоговая WinForms Луков Павел\obj\Debug\Итоговая WinForms Луков Павел.csproj.CoreCompileInputs.cache
+D:\ШАГ\Итоговая WinForms Луков Павел\Итоговая WinForms Луков Павел\obj\Debug\Итоговая WinForms Луков Павел.exe
+D:\ШАГ\Итоговая WinForms Луков Павел\Итоговая WinForms Луков Павел\obj\Debug\Итоговая WinForms Луков Павел.pdb
+D:\ШАГ\Итоговая WinForms Луков Павел\Итоговая WinForms Луков Павел\obj\Debug\Итоговая_WinForms_Луков_Павел.FormBus.resources
+D:\ШАГ\Итоговая WinForms Луков Павел\Итоговая WinForms Луков Павел\obj\Debug\Итоговая WinForms Луков Павел.csprojAssemblyReference.cache
+D:\ШАГ\Итоговая WinForms Луков Павел\Итоговая WinForms Луков Павел\obj\Debug\Итоговая_WinForms_Луков_Павел.Resource1.resources
+D:\ШАГ\Не сдал\Итоговая WinForms Луков Павел\Итоговая WinForms Луков Павел\bin\Debug\Итоговая WinForms Луков Павел.exe.config
+D:\ШАГ\Не сдал\Итоговая WinForms Луков Павел\Итоговая WinForms Луков Павел\bin\Debug\Итоговая WinForms Луков Павел.exe
+D:\ШАГ\Не сдал\Итоговая WinForms Луков Павел\Итоговая WinForms Луков Павел\bin\Debug\Итоговая WinForms Луков Павел.pdb
+D:\ШАГ\Не сдал\Итоговая WinForms Луков Павел\Итоговая WinForms Луков Павел\obj\Debug\Итоговая WinForms Луков Павел.csprojAssemblyReference.cache
+D:\ШАГ\Не сдал\Итоговая WinForms Луков Павел\Итоговая WinForms Луков Павел\obj\Debug\Итоговая_WinForms_Луков_Павел.Form1.resources
+D:\ШАГ\Не сдал\Итоговая WinForms Луков Павел\Итоговая WinForms Луков Павел\obj\Debug\Итоговая_WinForms_Луков_Павел.FormBus.resources
+D:\ШАГ\Не сдал\Итоговая WinForms Луков Павел\Итоговая WinForms Луков Павел\obj\Debug\Итоговая_WinForms_Луков_Павел.Properties.Resources.resources
+D:\ШАГ\Не сдал\Итоговая WinForms Луков Павел\Итоговая WinForms Луков Павел\obj\Debug\Итоговая_WinForms_Луков_Павел.Resource1.resources
+D:\ШАГ\Не сдал\Итоговая WinForms Луков Павел\Итоговая WinForms Луков Павел\obj\Debug\Итоговая WinForms Луков Павел.csproj.GenerateResource.cache
+D:\ШАГ\Не сдал\Итоговая WinForms Луков Павел\Итоговая WinForms Луков Павел\obj\Debug\Итоговая WinForms Луков Павел.csproj.CoreCompileInputs.cache
+D:\ШАГ\Не сдал\Итоговая WinForms Луков Павел\Итоговая WinForms Луков Павел\obj\Debug\Итоговая WinForms Луков Павел.exe
+D:\ШАГ\Не сдал\Итоговая WinForms Луков Павел\Итоговая WinForms Луков Павел\obj\Debug\Итоговая WinForms Луков Павел.pdb

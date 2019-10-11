@@ -1,0 +1,28 @@
+﻿@model dynamic
+
+@{
+    ViewBag.Title = "Типы номеров";
+}
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>
+            Тип
+        </th>
+        <th>
+            Стоимость
+        </th>
+    </tr>
+
+    @foreach (var item in ViewBag.RoomTypes)
+    {
+    <tr>
+        <td>
+            @item.Type
+        </td>
+        <td>
+            @item.Cost
+        </td>
+    </tr>
+    }
+
+</table>

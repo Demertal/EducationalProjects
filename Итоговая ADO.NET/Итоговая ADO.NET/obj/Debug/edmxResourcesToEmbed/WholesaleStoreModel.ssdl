@@ -1,0 +1,255 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище WholesaleStoreModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="120" Nullable="false" />
+    <Property Name="PurchasePrice" Type="money" Nullable="false" />
+    <Property Name="SalesPrice" Type="money" Nullable="false" />
+    <Property Name="IdUnitStorage" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "WholesaleStore.dbo.ProductsCopy" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="ProductsCopy">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Title" />
+      <PropertyRef Name="PurchasePrice" />
+      <PropertyRef Name="SalesPrice" />
+      <PropertyRef Name="IdUnitStorage" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="120" Nullable="false" />
+    <Property Name="PurchasePrice" Type="money" Nullable="false" />
+    <Property Name="SalesPrice" Type="money" Nullable="false" />
+    <Property Name="IdUnitStorage" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Query9Table">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="120" Nullable="false" />
+    <Property Name="PurchasePrice" Type="money" Nullable="false" />
+    <Property Name="SalesPrice" Type="money" Nullable="false" />
+    <Property Name="IdUnitStorage" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Sales">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdProduct" Type="int" Nullable="false" />
+    <Property Name="Count" Type="int" Nullable="false" />
+    <Property Name="IdSeller" Type="int" Nullable="false" />
+    <Property Name="DateSale" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Sellers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Surname" Type="nvarchar" MaxLength="120" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="120" Nullable="false" />
+    <Property Name="Patronymic" Type="nvarchar" MaxLength="120" Nullable="false" />
+    <Property Name="Сommissions" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UnitStorages">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "WholesaleStore.dbo.Query1" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="Query1">
+    <Key>
+      <PropertyRef Name="Title" />
+      <PropertyRef Name="PurchasePrice" />
+      <PropertyRef Name="SalesPrice" />
+      <PropertyRef Name="UnitStorage" />
+    </Key>
+    <Property Name="Title" Type="nvarchar" MaxLength="120" Nullable="false" />
+    <Property Name="PurchasePrice" Type="money" Nullable="false" />
+    <Property Name="SalesPrice" Type="money" Nullable="false" />
+    <Property Name="UnitStorage" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "WholesaleStore.dbo.Query2" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="Query2">
+    <Key>
+      <PropertyRef Name="Title" />
+      <PropertyRef Name="PurchasePrice" />
+      <PropertyRef Name="SalesPrice" />
+      <PropertyRef Name="UnitStorage" />
+    </Key>
+    <Property Name="Title" Type="nvarchar" MaxLength="120" Nullable="false" />
+    <Property Name="PurchasePrice" Type="money" Nullable="false" />
+    <Property Name="SalesPrice" Type="money" Nullable="false" />
+    <Property Name="UnitStorage" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "WholesaleStore.dbo.Query3" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="Query3">
+    <Key>
+      <PropertyRef Name="Title" />
+      <PropertyRef Name="PurchasePrice" />
+      <PropertyRef Name="SalesPrice" />
+      <PropertyRef Name="UnitStorage" />
+    </Key>
+    <Property Name="Title" Type="nvarchar" MaxLength="120" Nullable="false" />
+    <Property Name="PurchasePrice" Type="money" Nullable="false" />
+    <Property Name="SalesPrice" Type="money" Nullable="false" />
+    <Property Name="UnitStorage" Type="nvarchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "WholesaleStore.dbo.Query7" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="Query7">
+    <Key>
+      <PropertyRef Name="Title" />
+    </Key>
+    <Property Name="Title" Type="nvarchar" MaxLength="120" Nullable="false" />
+    <Property Name="PurchasePrice" Type="money" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "WholesaleStore.dbo.Query8" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="Query8">
+    <Key>
+      <PropertyRef Name="FullName" />
+    </Key>
+    <Property Name="FullName" Type="nvarchar" MaxLength="362" Nullable="false" />
+    <Property Name="SalesPrice" Type="money" />
+  </EntityType>
+  <Association Name="FK__Products__IdUnit__2D27B809">
+    <End Role="UnitStorages" Type="Self.UnitStorages" Multiplicity="1" />
+    <End Role="Products" Type="Self.Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UnitStorages">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="IdUnitStorage" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Query9Tab__IdUni__534D60F1">
+    <End Role="UnitStorages" Type="Self.UnitStorages" Multiplicity="1" />
+    <End Role="Query9Table" Type="Self.Query9Table" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UnitStorages">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Query9Table">
+        <PropertyRef Name="IdUnitStorage" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sales__IdProduct__37A5467C">
+    <End Role="Products" Type="Self.Products" Multiplicity="1" />
+    <End Role="Sales" Type="Self.Sales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sales">
+        <PropertyRef Name="IdProduct" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sales__IdSeller__38996AB5">
+    <End Role="Sellers" Type="Self.Sellers" Multiplicity="1" />
+    <End Role="Sales" Type="Self.Sales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sellers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sales">
+        <PropertyRef Name="IdSeller" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="Query10" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Query11" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Query12" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Query4" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="commissions" Type="float" Mode="In" />
+  </Function>
+  <Function Name="Query5" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="lowSalesPrice" Type="money" Mode="In" />
+    <Parameter Name="upSalesPrice" Type="money" Mode="In" />
+  </Function>
+  <Function Name="Query6" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Query6Main" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Query9" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="Хранилище WholesaleStoreModelContainer">
+    <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Query9Table" EntityType="Self.Query9Table" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sales" EntityType="Self.Sales" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sellers" EntityType="Self.Sellers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UnitStorages" EntityType="Self.UnitStorages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductsCopy" EntityType="Self.ProductsCopy" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ProductsCopy].[Id] AS [Id], 
+    [ProductsCopy].[Title] AS [Title], 
+    [ProductsCopy].[PurchasePrice] AS [PurchasePrice], 
+    [ProductsCopy].[SalesPrice] AS [SalesPrice], 
+    [ProductsCopy].[IdUnitStorage] AS [IdUnitStorage]
+    FROM [dbo].[ProductsCopy] AS [ProductsCopy]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Query1" EntityType="Self.Query1" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Query1].[Title] AS [Title], 
+    [Query1].[PurchasePrice] AS [PurchasePrice], 
+    [Query1].[SalesPrice] AS [SalesPrice], 
+    [Query1].[UnitStorage] AS [UnitStorage]
+    FROM [dbo].[Query1] AS [Query1]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Query2" EntityType="Self.Query2" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Query2].[Title] AS [Title], 
+    [Query2].[PurchasePrice] AS [PurchasePrice], 
+    [Query2].[SalesPrice] AS [SalesPrice], 
+    [Query2].[UnitStorage] AS [UnitStorage]
+    FROM [dbo].[Query2] AS [Query2]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Query3" EntityType="Self.Query3" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Query3].[Title] AS [Title], 
+    [Query3].[PurchasePrice] AS [PurchasePrice], 
+    [Query3].[SalesPrice] AS [SalesPrice], 
+    [Query3].[UnitStorage] AS [UnitStorage]
+    FROM [dbo].[Query3] AS [Query3]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Query7" EntityType="Self.Query7" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Query7].[Title] AS [Title], 
+    [Query7].[PurchasePrice] AS [PurchasePrice]
+    FROM [dbo].[Query7] AS [Query7]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Query8" EntityType="Self.Query8" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Query8].[FullName] AS [FullName], 
+    [Query8].[SalesPrice] AS [SalesPrice]
+    FROM [dbo].[Query8] AS [Query8]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__Products__IdUnit__2D27B809" Association="Self.FK__Products__IdUnit__2D27B809">
+      <End Role="UnitStorages" EntitySet="UnitStorages" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Query9Tab__IdUni__534D60F1" Association="Self.FK__Query9Tab__IdUni__534D60F1">
+      <End Role="UnitStorages" EntitySet="UnitStorages" />
+      <End Role="Query9Table" EntitySet="Query9Table" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sales__IdProduct__37A5467C" Association="Self.FK__Sales__IdProduct__37A5467C">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="Sales" EntitySet="Sales" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sales__IdSeller__38996AB5" Association="Self.FK__Sales__IdSeller__38996AB5">
+      <End Role="Sellers" EntitySet="Sellers" />
+      <End Role="Sales" EntitySet="Sales" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

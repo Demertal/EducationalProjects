@@ -1,0 +1,233 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WholesaleStoreModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="120" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="PurchasePrice" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="SalesPrice" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="IdUnitStorage" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="UnitStorages" Relationship="Self.FK__Products__IdUnit__2D27B809" FromRole="Products" ToRole="UnitStorages" />
+    <NavigationProperty Name="Sales" Relationship="Self.FK__Sales__IdProduct__37A5467C" FromRole="Products" ToRole="Sales" />
+  </EntityType>
+  <EntityType Name="Sales">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdProduct" Type="Int32" Nullable="false" />
+    <Property Name="Count" Type="Int32" Nullable="false" />
+    <Property Name="IdSeller" Type="Int32" Nullable="false" />
+    <Property Name="DateSale" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="Products" Relationship="Self.FK__Sales__IdProduct__37A5467C" FromRole="Sales" ToRole="Products" />
+    <NavigationProperty Name="Sellers" Relationship="Self.FK__Sales__IdSeller__38996AB5" FromRole="Sales" ToRole="Sellers" />
+  </EntityType>
+  <EntityType Name="Sellers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Surname" Type="String" MaxLength="120" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="120" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Patronymic" Type="String" MaxLength="120" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Сommissions" Type="Double" Nullable="false" />
+    <NavigationProperty Name="Sales" Relationship="Self.FK__Sales__IdSeller__38996AB5" FromRole="Sellers" ToRole="Sales" />
+  </EntityType>
+  <EntityType Name="UnitStorages">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Products" Relationship="Self.FK__Products__IdUnit__2D27B809" FromRole="UnitStorages" ToRole="Products" />
+    <NavigationProperty Name="Query9Table" Relationship="WholesaleStoreModel.FK__Query9Tab__IdUni__534D60F1" FromRole="UnitStorages" ToRole="Query9Table" />
+  </EntityType>
+  <Association Name="FK__Products__IdUnit__2D27B809">
+    <End Role="UnitStorages" Type="Self.UnitStorages" Multiplicity="1" />
+    <End Role="Products" Type="Self.Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UnitStorages">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="IdUnitStorage" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sales__IdProduct__37A5467C">
+    <End Role="Products" Type="Self.Products" Multiplicity="1" />
+    <End Role="Sales" Type="Self.Sales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sales">
+        <PropertyRef Name="IdProduct" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Sales__IdSeller__38996AB5">
+    <End Role="Sellers" Type="Self.Sellers" Multiplicity="1" />
+    <End Role="Sales" Type="Self.Sales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sellers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Sales">
+        <PropertyRef Name="IdSeller" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="WholesaleStoreEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Products" EntityType="Self.Products" />
+    <EntitySet Name="Sales" EntityType="Self.Sales" />
+    <EntitySet Name="Sellers" EntityType="Self.Sellers" />
+    <EntitySet Name="UnitStorages" EntityType="Self.UnitStorages" />
+    <AssociationSet Name="FK__Products__IdUnit__2D27B809" Association="Self.FK__Products__IdUnit__2D27B809">
+      <End Role="UnitStorages" EntitySet="UnitStorages" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sales__IdProduct__37A5467C" Association="Self.FK__Sales__IdProduct__37A5467C">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="Sales" EntitySet="Sales" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Sales__IdSeller__38996AB5" Association="Self.FK__Sales__IdSeller__38996AB5">
+      <End Role="Sellers" EntitySet="Sellers" />
+      <End Role="Sales" EntitySet="Sales" />
+    </AssociationSet>
+    <EntitySet Name="Query9Table" EntityType="WholesaleStoreModel.Query9Table" />
+    <EntitySet Name="ProductsCopy" EntityType="WholesaleStoreModel.ProductsCopy" />
+    <EntitySet Name="Query1" EntityType="WholesaleStoreModel.Query1" />
+    <EntitySet Name="Query2" EntityType="WholesaleStoreModel.Query2" />
+    <EntitySet Name="Query3" EntityType="WholesaleStoreModel.Query3" />
+    <EntitySet Name="Query7" EntityType="WholesaleStoreModel.Query7" />
+    <EntitySet Name="Query8" EntityType="WholesaleStoreModel.Query8" />
+    <AssociationSet Name="FK__Query9Tab__IdUni__534D60F1" Association="WholesaleStoreModel.FK__Query9Tab__IdUni__534D60F1">
+      <End Role="UnitStorages" EntitySet="UnitStorages" />
+      <End Role="Query9Table" EntitySet="Query9Table" />
+    </AssociationSet>
+    <FunctionImport Name="Query10" />
+    <FunctionImport Name="Query11" />
+    <FunctionImport Name="Query12" />
+    <FunctionImport Name="Query4" ReturnType="Collection(WholesaleStoreModel.Query4_Result)">
+      <Parameter Name="commissions" Mode="In" Type="Double" />
+    </FunctionImport>
+    <FunctionImport Name="Query5" ReturnType="Collection(WholesaleStoreModel.Query5_Result)">
+      <Parameter Name="lowSalesPrice" Mode="In" Type="Decimal" />
+      <Parameter Name="upSalesPrice" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="Query6" ReturnType="Collection(WholesaleStoreModel.Query6_Result)" />
+    <FunctionImport Name="Query6Main" />
+    <FunctionImport Name="Query9" />
+  </EntityContainer>
+  <EntityType Name="Query9Table">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="PurchasePrice" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="SalesPrice" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="IdUnitStorage" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="UnitStorages" Relationship="WholesaleStoreModel.FK__Query9Tab__IdUni__534D60F1" FromRole="Query9Table" ToRole="UnitStorages" />
+  </EntityType>
+  <EntityType Name="ProductsCopy">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="Title" />
+      <PropertyRef Name="PurchasePrice" />
+      <PropertyRef Name="SalesPrice" />
+      <PropertyRef Name="IdUnitStorage" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="PurchasePrice" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="SalesPrice" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="IdUnitStorage" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Query1">
+    <Key>
+      <PropertyRef Name="Title" />
+      <PropertyRef Name="PurchasePrice" />
+      <PropertyRef Name="SalesPrice" />
+      <PropertyRef Name="UnitStorage" />
+    </Key>
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="PurchasePrice" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="SalesPrice" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="UnitStorage" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Query2">
+    <Key>
+      <PropertyRef Name="Title" />
+      <PropertyRef Name="PurchasePrice" />
+      <PropertyRef Name="SalesPrice" />
+      <PropertyRef Name="UnitStorage" />
+    </Key>
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="PurchasePrice" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="SalesPrice" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="UnitStorage" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Query3">
+    <Key>
+      <PropertyRef Name="Title" />
+      <PropertyRef Name="PurchasePrice" />
+      <PropertyRef Name="SalesPrice" />
+      <PropertyRef Name="UnitStorage" />
+    </Key>
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="PurchasePrice" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="SalesPrice" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="UnitStorage" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Query7">
+    <Key>
+      <PropertyRef Name="Title" />
+    </Key>
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="true" />
+    <Property Name="PurchasePrice" Type="Decimal" Precision="19" Scale="4" />
+  </EntityType>
+  <EntityType Name="Query8">
+    <Key>
+      <PropertyRef Name="FullName" />
+    </Key>
+    <Property Name="FullName" Type="String" Nullable="false" MaxLength="362" FixedLength="false" Unicode="true" />
+    <Property Name="SalesPrice" Type="Decimal" Precision="19" Scale="4" />
+  </EntityType>
+  <Association Name="FK__Query9Tab__IdUni__534D60F1">
+    <End Type="WholesaleStoreModel.UnitStorages" Role="UnitStorages" Multiplicity="1" />
+    <End Type="WholesaleStoreModel.Query9Table" Role="Query9Table" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UnitStorages">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Query9Table">
+        <PropertyRef Name="IdUnitStorage" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="Query4_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="Surname" Nullable="false" MaxLength="120" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="120" />
+    <Property Type="String" Name="Patronymic" Nullable="false" MaxLength="120" />
+    <Property Type="Double" Name="Сommissions" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="Query5_Result">
+    <Property Type="String" Name="Title" Nullable="false" MaxLength="120" />
+    <Property Type="Decimal" Name="PurchasePrice" Nullable="false" Precision="19" />
+    <Property Type="Decimal" Name="SalesPrice" Nullable="false" Precision="19" />
+    <Property Type="DateTime" Name="DateSale" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="Query6_Result">
+    <Property Type="String" Name="Title" Nullable="false" MaxLength="120" />
+    <Property Type="Decimal" Name="PurchasePrice" Nullable="false" Precision="19" />
+    <Property Type="Decimal" Name="SalesPrice" Nullable="false" Precision="19" />
+    <Property Type="DateTime" Name="DateSale" Nullable="false" />
+    <Property Type="Int32" Name="Count" Nullable="false" />
+    <Property Type="Decimal" Name="profit" Nullable="true" Precision="19" />
+  </ComplexType>
+</Schema>

@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.Title = "Поиск клиентов по номеру";
+}
+<body onload="onLoad()">
+
+@Html.DropDownList("IdRoom", null, htmlAttributes: new { @class = "form-control col-md-2" })
+
+<div id="results"></div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#IdRoom').change(function () {
+            var e = document.getElementById("IdRoom");
+            var val = e.options[e.selectedIndex].value;
+            $('#results').load('@Url.Action("ShowResidentsForNumberFun", "Home")?idNum=' + val);
+        });
+    });
+</script>
+    
+</body>
+
+<script type="text/javascript">
+    function onLoad() {
+        var e = document.getElementById("IdRoom");
+        var val = e.options[e.selectedIndex].value;
+        $('#results').load('@Url.Action("ShowResidentsForNumberFun", "Home")?idNum=' + val);
+    }
+
+</script>

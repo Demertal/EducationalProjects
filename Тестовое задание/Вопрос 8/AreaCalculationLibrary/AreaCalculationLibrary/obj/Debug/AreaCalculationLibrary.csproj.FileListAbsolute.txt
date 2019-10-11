@@ -1,0 +1,10 @@
+D:\ШАГ\AreaCalculationLibrary\AreaCalculationLibrary\bin\Debug\AreaCalculationLibrary.dll
+D:\ШАГ\AreaCalculationLibrary\AreaCalculationLibrary\bin\Debug\AreaCalculationLibrary.pdb
+D:\ШАГ\AreaCalculationLibrary\AreaCalculationLibrary\obj\Debug\AreaCalculationLibrary.csproj.CoreCompileInputs.cache
+D:\ШАГ\AreaCalculationLibrary\AreaCalculationLibrary\obj\Debug\AreaCalculationLibrary.dll
+D:\ШАГ\AreaCalculationLibrary\AreaCalculationLibrary\obj\Debug\AreaCalculationLibrary.pdb
+D:\ШАГ\Answers\Вопрос 8\AreaCalculationLibrary\AreaCalculationLibrary\bin\Debug\AreaCalculationLibrary.dll
+D:\ШАГ\Answers\Вопрос 8\AreaCalculationLibrary\AreaCalculationLibrary\bin\Debug\AreaCalculationLibrary.pdb
+D:\ШАГ\Answers\Вопрос 8\AreaCalculationLibrary\AreaCalculationLibrary\obj\Debug\AreaCalculationLibrary.csproj.CoreCompileInputs.cache
+D:\ШАГ\Answers\Вопрос 8\AreaCalculationLibrary\AreaCalculationLibrary\obj\Debug\AreaCalculationLibrary.dll
+D:\ШАГ\Answers\Вопрос 8\AreaCalculationLibrary\AreaCalculationLibrary\obj\Debug\AreaCalculationLibrary.pdb

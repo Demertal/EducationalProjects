@@ -1,0 +1,33 @@
+﻿@using Курсовая_ASP.NET.Controllers
+@{
+    ViewBag.Title = "title";
+}
+
+<div>
+    <label>Всего клиентов: @ViewBag.TotalCustomer</label>
+    <table id="id_table" class="table form-group">
+        <thead>
+            <tr>
+                <th>Номер</th>
+                <th>Кол-во клиентов</th>
+                <th>Был занят</th>
+                <th>Был свободен</th>
+                <th>Прибыль</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (ReportInfo item in ViewBag.Report)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Number)</td>
+                    <td>@Html.DisplayFor(modelItem => item.CountNum)</td>
+                    <td>@Html.DisplayFor(modelItem => item.CountDayBusy)</td>
+                    <td>@Html.DisplayFor(modelItem => item.CountDayFree)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Cost)</td>
+                </tr>
+            }
+        </tbody>
+
+    </table>
+    <label>Всего доход: @ViewBag.totaIncome</label>
+</div>

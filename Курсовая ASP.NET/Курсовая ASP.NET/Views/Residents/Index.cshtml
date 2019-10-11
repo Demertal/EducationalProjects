@@ -1,0 +1,66 @@
+﻿@using System.Web.UI.HtmlControls
+@{
+    ViewBag.Title = "Клиенты";
+}
+
+<p class="btn btn-default">
+    @Html.ActionLink("Заселить", "Create")
+</p>
+<table id="idResident" class="table form-group">
+    <thead>
+        <tr>
+            <th>Паспорт</th>
+            <th>Клиент</th>
+            <th>Дата заселения</th>
+            <th>Город</th>
+            <th>Номер</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Residents item in ViewBag.Residents)
+        {
+            if (ViewBag.IsShowEvicted || !item.IsEvicted)
+            {
+                string color = "black";
+                if (item.IsEvicted)
+                {
+                    color = "red";
+                }
+
+                <tr style="color: @color">
+                    <td>@Html.DisplayFor(modelItem => item.Passport)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Name) @Html.DisplayFor(modelItem => item.Patronymic) @Html.DisplayFor(modelItem => item.Surname)</td>
+                    <td>@Html.DisplayFor(modelItem => item.SettlementDate)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Cities.City)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Rooms.Number)</td>
+                    @if (!item.IsEvicted)
+                    {
+                        <td style="color: black">
+                            @Html.ActionLink("Изменить", "Edit", new { id = item.Id }) |
+                            @Html.ActionLink("Выселить", "Delete", new { id = item.Id })
+                        </td>
+                    }
+                </tr>
+            }
+        }
+    </tbody>
+
+</table>
+
+<input type="checkbox" checked="@ViewBag.IsShowEvicted" class="form-group" id="chk" />
+<label for="chk">Показать выcеленных клиентов </label>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#chk').change(function(e) {
+            var theUrl;
+            if (e.target.checked) {
+                theUrl = '@Url.Action("Index", "Residents", new {IsShowEvicted = true}, null)';
+            } else {
+                theUrl = '@Url.Action("Index", "Residents", new {IsShowEvicted = false}, null)';
+                }
+            window.location = theUrl;
+        });
+    });
+</script>

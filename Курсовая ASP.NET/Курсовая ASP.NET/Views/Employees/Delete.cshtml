@@ -1,0 +1,22 @@
+﻿@model Курсовая_ASP.NET.Employee
+
+@{
+    ViewBag.Title = "Удаление";
+}
+
+<h2>Delete</h2>
+
+<h3>Вы уверены, что хотите уволить работника?</h3>
+<div>
+    <h4>Работник  @Html.DisplayFor(model => model.Name) @Html.DisplayFor(model => model.Patronymic) @Html.DisplayFor(model => model.Surname)</h4>
+    <hr />
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Уволить" class="btn btn-default" /> |
+            @Html.ActionLink("Назад", "Index")
+        </div>
+    }
+</div>

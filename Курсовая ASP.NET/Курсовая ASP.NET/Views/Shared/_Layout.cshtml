@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="../../Content/Site.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("input[name='role']").change(function () {
+                var arrayOfElementsAdm = document.getElementsByClassName('adm-role');
+                var arrayOfElementsDir = document.getElementsByClassName('dir-role');
+                if ($(this).val() == "1") {
+                    for (var i = 0; i < arrayOfElementsAdm.length;i++){
+                        arrayOfElementsAdm[i].style.display ='inline-block';
+                    }
+                    for (var i = 0; i < arrayOfElementsDir.length;i++){
+                        arrayOfElementsDir[i].style.display ='none';
+                    }
+                }
+                else {
+                    for (var i = 0; i < arrayOfElementsAdm.length; i++) {
+                        arrayOfElementsAdm[i].style.display = 'none';
+                    }
+                    for (var i = 0; i < arrayOfElementsDir.length;i++){
+                        arrayOfElementsDir[i].style.display ='inline-block';
+                    }
+                }
+            });
+        });
+    </script>
+    <style>
+        .dir-role {
+            display: none;
+        }
+    </style>
+</head>
+ 
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+
+            <ul class="nav nav-pills menu ">
+                <li>@Html.ActionLink("Работники", "Index", "Employees")</li>
+                <li>@Html.ActionLink("Города", "ShowCities", "Home")</li>
+                <li>@Html.ActionLink("Типы номеров", "ShowRoomTypes", "Home")</li>
+                <li>@Html.ActionLink("Уборка", "ShowСleaning", "Home")</li>
+                <li>@Html.ActionLink("Номера", "Index", "Rooms")</li>
+                <li>@Html.ActionLink("Клиенты", "Index", "Residents")</li>
+                <li>@Html.ActionLink("Выезды", "ShowAccommodation", "Home")</li>
+                <li>
+                    <a href=#>Поиск...</a>
+                    <ul class="submenu">
+                        <li>@Html.ActionLink("Поиск клиента по номеру", "ShowResidentsForNumber", "Home")</li>
+                        <li>@Html.ActionLink("Поиск клиента по городу", "ShowResidentsForCity", "Home")</li>
+                    </ul>
+                </li>
+                <li class="dir-role" >@Html.ActionLink("Отчет", "ShowReport", "Home")</li>
+                <li>
+                    <div>
+                        <p style="color:whitesmoke"><input name="role" type="radio" value="1" checked="checked"> Администратор </p>
+                        <p style="color:whitesmoke"><input name="role" type="radio" value="2"> Директор </p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+<br /> <br /><br />
+<div class="container h-100">
+    <div class="row h-100 justify-content-center align-items-center">
+        @RenderBody()
+    </div>
+</div>
+
+
+</body>
+</html>

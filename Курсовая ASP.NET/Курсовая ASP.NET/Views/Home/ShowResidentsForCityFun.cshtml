@@ -1,0 +1,36 @@
+﻿@model System.Collections.Generic.List<Курсовая_ASP.NET.Residents>
+
+@{
+    ViewBag.Title = "title";
+}
+
+<table class="table form-group">
+    <thead>
+    <tr>
+        <th>Паспорт</th>
+        <th>Клиент</th>
+        <th>Дата заселения</th>
+        <th>Город</th>
+        <th>Номер</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (Residents item in Model)
+    {
+        string color = "black";
+        if (item.IsEvicted)
+        {
+            color = "red";
+        }
+
+        <tr style="color: @color">
+            <td>@Html.DisplayFor(modelItem => item.Passport)</td>
+            <td>@Html.DisplayFor(modelItem => item.Name) @Html.DisplayFor(modelItem => item.Patronymic) @Html.DisplayFor(modelItem => item.Surname)</td>
+            <td>@Html.DisplayFor(modelItem => item.SettlementDate)</td>
+            <td>@Html.DisplayFor(modelItem => item.Cities.City)</td>
+            <td>@Html.DisplayFor(modelItem => item.Rooms.Number)</td>
+        </tr>
+    }
+    </tbody>
+
+</table>

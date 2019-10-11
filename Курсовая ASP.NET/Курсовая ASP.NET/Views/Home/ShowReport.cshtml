@@ -1,0 +1,31 @@
+﻿@using System.Security.Policy
+@{
+    ViewBag.Title = "Отчет";
+}
+
+<body onload="onLoad()">
+
+    @Html.DropDownList("IdQuarter", null, htmlAttributes: new { @class = "form-control col-md-1" })
+
+    <div id="results"/>
+
+    <script type="text/javascript">
+    $(document).ready(function() {
+        $('#IdQuarter').change(function () {
+            var e = document.getElementById("IdQuarter");
+            var val = e.options[e.selectedIndex].value;
+            $('#results').load('@Url.Action("ShowReportFun", "Home")?idQuarter=' + val);
+        });
+    });
+    </script>
+
+</body>
+
+<script type="text/javascript">
+    function onLoad() {
+        var e = document.getElementById("IdQuarter");
+        var val = e.options[e.selectedIndex].value;
+        $('#results').load('@Url.Action("ShowReportFun", "Home")?idQuarter=' + val);
+    }
+
+</script>

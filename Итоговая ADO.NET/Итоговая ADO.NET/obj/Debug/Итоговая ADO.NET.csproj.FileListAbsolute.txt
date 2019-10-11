@@ -1,0 +1,28 @@
+D:\ШАГ\Итоговая ADO.NET\Итоговая ADO.NET\bin\Debug\Итоговая ADO.NET.exe.config
+D:\ШАГ\Итоговая ADO.NET\Итоговая ADO.NET\bin\Debug\Итоговая ADO.NET.exe
+D:\ШАГ\Итоговая ADO.NET\Итоговая ADO.NET\bin\Debug\Итоговая ADO.NET.pdb
+D:\ШАГ\Итоговая ADO.NET\Итоговая ADO.NET\obj\Debug\Итоговая ADO.NET.csprojAssemblyReference.cache
+D:\ШАГ\Итоговая ADO.NET\Итоговая ADO.NET\obj\Debug\App.g.cs
+D:\ШАГ\Итоговая ADO.NET\Итоговая ADO.NET\obj\Debug\Итоговая ADO.NET_MarkupCompile.cache
+D:\ШАГ\Итоговая ADO.NET\Итоговая ADO.NET\obj\Debug\Итоговая ADO.NET_MarkupCompile.lref
+D:\ШАГ\Итоговая ADO.NET\Итоговая ADO.NET\obj\Debug\Итоговая ADO.NET.g.resources
+D:\ШАГ\Итоговая ADO.NET\Итоговая ADO.NET\obj\Debug\Итоговая_ADO.NET.Properties.Resources.resources
+D:\ШАГ\Итоговая ADO.NET\Итоговая ADO.NET\obj\Debug\Итоговая ADO.NET.csproj.GenerateResource.cache
+D:\ШАГ\Итоговая ADO.NET\Итоговая ADO.NET\obj\Debug\Итоговая ADO.NET.csproj.CoreCompileInputs.cache
+D:\ШАГ\Итоговая ADO.NET\Итоговая ADO.NET\obj\Debug\Итоговая ADO.NET.exe
+D:\ШАГ\Итоговая ADO.NET\Итоговая ADO.NET\obj\Debug\Итоговая ADO.NET.pdb
+D:\ШАГ\Итоговая ADO.NET\Итоговая ADO.NET\bin\Debug\EntityFramework.dll
+D:\ШАГ\Итоговая ADO.NET\Итоговая ADO.NET\bin\Debug\EntityFramework.SqlServer.dll
+D:\ШАГ\Итоговая ADO.NET\Итоговая ADO.NET\bin\Debug\EntityFramework.xml
+D:\ШАГ\Итоговая ADO.NET\Итоговая ADO.NET\bin\Debug\EntityFramework.SqlServer.xml
+D:\ШАГ\Итоговая ADO.NET\Итоговая ADO.NET\bin\Debug\ru\EntityFramework.resources.dll
+D:\ШАГ\Итоговая ADO.NET\Итоговая ADO.NET\obj\Debug\Итоговая ADO.NET_Content.g.cs
+D:\ШАГ\Итоговая ADO.NET\Итоговая ADO.NET\obj\Debug\Итоговая ADO.NET.csproj.CopyComplete
+D:\ШАГ\Итоговая ADO.NET\Итоговая ADO.NET\obj\Debug\View\SaleProduct.g.cs
+D:\ШАГ\Итоговая ADO.NET\Итоговая ADO.NET\obj\Debug\View\AddProduct.g.cs
+D:\ШАГ\Итоговая ADO.NET\Итоговая ADO.NET\obj\Debug\View\AddSeller.g.cs
+D:\ШАГ\Итоговая ADO.NET\Итоговая ADO.NET\obj\Debug\View\MainWindow.g.cs
+D:\ШАГ\Итоговая ADO.NET\Итоговая ADO.NET\obj\Debug\View\SaleProduct.baml
+D:\ШАГ\Итоговая ADO.NET\Итоговая ADO.NET\obj\Debug\View\AddProduct.baml
+D:\ШАГ\Итоговая ADO.NET\Итоговая ADO.NET\obj\Debug\View\AddSeller.baml
+D:\ШАГ\Итоговая ADO.NET\Итоговая ADO.NET\obj\Debug\View\MainWindow.baml

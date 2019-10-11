@@ -1,0 +1,1061 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище HostelModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Accommodation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SettlementDate" Type="date" Nullable="false" />
+          <Property Name="DepartureDate" Type="date" />
+          <Property Name="IdRoom" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Cities">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="City" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DaysWeek">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Day" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Patronymic" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Surname" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Floors">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Floor" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Residents">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Passport" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Patronymic" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Surname" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="IdCity" Type="int" Nullable="false" />
+          <Property Name="SettlementDate" Type="date" Nullable="false" />
+          <Property Name="IdRoom" Type="int" Nullable="false" />
+          <Property Name="IsEvicted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Rooms">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdRoomType" Type="int" Nullable="false" />
+          <Property Name="IdFloor" Type="int" Nullable="false" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="9" Nullable="false" />
+          <Property Name="Number" Type="int" Nullable="false" />
+          <Property Name="FreePlace" Type="int" />
+        </EntityType>
+        <EntityType Name="RoomTypes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Type" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="CountPlace" Type="int" Nullable="false" />
+          <Property Name="Cost" Type="money" />
+        </EntityType>
+        <EntityType Name="Сleaning">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdEmployee" Type="int" Nullable="false" />
+          <Property Name="IdFloor" Type="int" Nullable="false" />
+          <Property Name="IdDay" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Accommoda__IdRoo__6477ECF3">
+          <End Role="Rooms" Type="Self.Rooms" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Accommodation" Type="Self.Accommodation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rooms">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Accommodation">
+              <PropertyRef Name="IdRoom" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Residents__IdCit__5FB337D6">
+          <End Role="Cities" Type="Self.Cities" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Residents" Type="Self.Residents" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cities">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Residents">
+              <PropertyRef Name="IdCity" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Residents__IdRoo__60A75C0F">
+          <End Role="Rooms" Type="Self.Rooms" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Residents" Type="Self.Residents" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rooms">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Residents">
+              <PropertyRef Name="IdRoom" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Rooms__IdFloor__5812160E">
+          <End Role="Floors" Type="Self.Floors" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Rooms" Type="Self.Rooms" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Floors">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Rooms">
+              <PropertyRef Name="IdFloor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Rooms__IdRoomTyp__571DF1D5">
+          <End Role="RoomTypes" Type="Self.RoomTypes" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Rooms" Type="Self.Rooms" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RoomTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Rooms">
+              <PropertyRef Name="IdRoomType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Сleaning__IdDay__4AB81AF0">
+          <End Role="DaysWeek" Type="Self.DaysWeek" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Сleaning" Type="Self.Сleaning" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DaysWeek">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Сleaning">
+              <PropertyRef Name="IdDay" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Сleaning__IdEmpl__48CFD27E">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Сleaning" Type="Self.Сleaning" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Сleaning">
+              <PropertyRef Name="IdEmployee" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Сleaning__IdFloo__49C3F6B7">
+          <End Role="Floors" Type="Self.Floors" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Сleaning" Type="Self.Сleaning" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Floors">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Сleaning">
+              <PropertyRef Name="IdFloor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="AccommodationView" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="Id" Type="int" Nullable="false" />
+                <Property Name="SettlementDate" Type="date" Nullable="false" />
+                <Property Name="DepartureDate" Type="date" />
+                <Property Name="Number" Type="int" Nullable="false" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="CitiesForResidentView" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="Id" Type="int" Nullable="false" />
+                <Property Name="City" Type="nvarchar" MaxLength="20" Nullable="false" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="CleaningView" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="Id" Type="int" Nullable="false" />
+                <Property Name="Name" Type="nvarchar" MaxLength="20" />
+                <Property Name="Patronymic" Type="nvarchar" MaxLength="20" />
+                <Property Name="Surname" Type="nvarchar" MaxLength="20" />
+                <Property Name="Floor" Type="int" />
+                <Property Name="Day" Type="nvarchar" MaxLength="20" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="CleaningViewByEmployee" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="Id" Type="int" Nullable="false" />
+                <Property Name="Name" Type="nvarchar" MaxLength="20" />
+                <Property Name="Patronymic" Type="nvarchar" MaxLength="20" />
+                <Property Name="Surname" Type="nvarchar" MaxLength="20" />
+                <Property Name="Floor" Type="int" />
+                <Property Name="Day" Type="nvarchar" MaxLength="20" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="FindEmployeeByDayAndFloor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id_day" Type="int" Mode="In" />
+          <Parameter Name="id_floor" Type="int" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="Id" Type="int" Nullable="false" />
+                <Property Name="Name" Type="nvarchar" MaxLength="20" Nullable="false" />
+                <Property Name="Patronymic" Type="nvarchar" MaxLength="20" Nullable="false" />
+                <Property Name="Surname" Type="nvarchar" MaxLength="20" Nullable="false" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="FindFreePlaceRooms" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="Type" Type="nvarchar" MaxLength="20" Nullable="false" />
+                <Property Name="Floor" Type="int" Nullable="false" />
+                <Property Name="Phone" Type="nvarchar" MaxLength="9" Nullable="false" />
+                <Property Name="Number" Type="int" Nullable="false" />
+                <Property Name="Cost" Type="money" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="FindPartiallyFreePlaceRooms" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="Type" Type="nvarchar" MaxLength="20" Nullable="false" />
+                <Property Name="Floor" Type="int" Nullable="false" />
+                <Property Name="Phone" Type="nvarchar" MaxLength="9" Nullable="false" />
+                <Property Name="Number" Type="int" Nullable="false" />
+                <Property Name="Cost" Type="money" />
+                <Property Name="FreePlace" Type="int" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="FindResidentByCity" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="Name" Type="nvarchar" MaxLength="20" Nullable="false" />
+                <Property Name="Patronymic" Type="nvarchar" MaxLength="20" Nullable="false" />
+                <Property Name="Surname" Type="nvarchar" MaxLength="20" Nullable="false" />
+                <Property Name="Passport" Type="nvarchar" MaxLength="10" Nullable="false" />
+                <Property Name="Number" Type="int" Nullable="false" />
+                <Property Name="SettlementDate" Type="date" Nullable="false" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="FindResidentByRoom" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="Name" Type="nvarchar" MaxLength="20" Nullable="false" />
+                <Property Name="Patronymic" Type="nvarchar" MaxLength="20" Nullable="false" />
+                <Property Name="Surname" Type="nvarchar" MaxLength="20" Nullable="false" />
+                <Property Name="Passport" Type="nvarchar" MaxLength="10" Nullable="false" />
+                <Property Name="City" Type="nvarchar" MaxLength="20" Nullable="false" />
+                <Property Name="SettlementDate" Type="date" Nullable="false" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="Report" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="start" Type="date" Mode="In" />
+          <Parameter Name="end" Type="date" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="Number" Type="int" Nullable="false" />
+                <Property Name="CountNum" Type="int" />
+                <Property Name="CountDayBusy" Type="int" />
+                <Property Name="Cost" Type="money" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="ResidentsView" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="Id" Type="int" Nullable="false" />
+                <Property Name="Name" Type="nvarchar" MaxLength="20" Nullable="false" />
+                <Property Name="Patronymic" Type="nvarchar" MaxLength="20" Nullable="false" />
+                <Property Name="Surname" Type="nvarchar" MaxLength="20" Nullable="false" />
+                <Property Name="Passport" Type="nvarchar" MaxLength="10" Nullable="false" />
+                <Property Name="City" Type="nvarchar" MaxLength="20" Nullable="false" />
+                <Property Name="Number" Type="int" Nullable="false" />
+                <Property Name="SettlementDate" Type="date" Nullable="false" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="RoomsView" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="Id" Type="int" Nullable="false" />
+                <Property Name="Number" Type="int" Nullable="false" />
+                <Property Name="Type" Type="nvarchar" MaxLength="20" Nullable="false" />
+                <Property Name="Floor" Type="int" Nullable="false" />
+                <Property Name="Phone" Type="nvarchar" MaxLength="9" Nullable="false" />
+                <Property Name="Cost" Type="money" />
+                <Property Name="FreePlace" Type="int" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <Function Name="RoomsViewForResident" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="Id" Type="int" Nullable="false" />
+                <Property Name="Number" Type="int" Nullable="false" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <EntityContainer Name="Хранилище HostelModelContainer">
+          <EntitySet Name="Accommodation" EntityType="Self.Accommodation" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cities" EntityType="Self.Cities" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DaysWeek" EntityType="Self.DaysWeek" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Floors" EntityType="Self.Floors" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Residents" EntityType="Self.Residents" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rooms" EntityType="Self.Rooms" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RoomTypes" EntityType="Self.RoomTypes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Сleaning" EntityType="Self.Сleaning" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Accommoda__IdRoo__6477ECF3" Association="Self.FK__Accommoda__IdRoo__6477ECF3">
+            <End Role="Rooms" EntitySet="Rooms" />
+            <End Role="Accommodation" EntitySet="Accommodation" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Residents__IdCit__5FB337D6" Association="Self.FK__Residents__IdCit__5FB337D6">
+            <End Role="Cities" EntitySet="Cities" />
+            <End Role="Residents" EntitySet="Residents" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Residents__IdRoo__60A75C0F" Association="Self.FK__Residents__IdRoo__60A75C0F">
+            <End Role="Rooms" EntitySet="Rooms" />
+            <End Role="Residents" EntitySet="Residents" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Rooms__IdFloor__5812160E" Association="Self.FK__Rooms__IdFloor__5812160E">
+            <End Role="Floors" EntitySet="Floors" />
+            <End Role="Rooms" EntitySet="Rooms" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Rooms__IdRoomTyp__571DF1D5" Association="Self.FK__Rooms__IdRoomTyp__571DF1D5">
+            <End Role="RoomTypes" EntitySet="RoomTypes" />
+            <End Role="Rooms" EntitySet="Rooms" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Сleaning__IdDay__4AB81AF0" Association="Self.FK__Сleaning__IdDay__4AB81AF0">
+            <End Role="DaysWeek" EntitySet="DaysWeek" />
+            <End Role="Сleaning" EntitySet="Сleaning" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Сleaning__IdEmpl__48CFD27E" Association="Self.FK__Сleaning__IdEmpl__48CFD27E">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Сleaning" EntitySet="Сleaning" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Сleaning__IdFloo__49C3F6B7" Association="Self.FK__Сleaning__IdFloo__49C3F6B7">
+            <End Role="Floors" EntitySet="Floors" />
+            <End Role="Сleaning" EntitySet="Сleaning" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="HostelModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <ComplexType Name="AccommodationView_Result">
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="SettlementDate" Type="DateTime" Nullable="false" />
+          <Property Name="DepartureDate" Type="DateTime" />
+          <Property Name="Number" Type="Int32" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="CitiesForResidentView_Result">
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="City" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="CleaningView_Result">
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Patronymic" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Surname" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Floor" Type="Int32" />
+          <Property Name="Day" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+        </ComplexType>
+        <ComplexType Name="CleaningViewByEmployee_Result">
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Patronymic" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Surname" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Floor" Type="Int32" />
+          <Property Name="Day" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+        </ComplexType>
+        <ComplexType Name="FindEmployeeByDayAndFloor_Result">
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Patronymic" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Surname" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="FindFreePlaceRooms_Result">
+          <Property Name="Type" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Floor" Type="Int32" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="9" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Number" Type="Int32" Nullable="false" />
+          <Property Name="Cost" Type="Decimal" Precision="19" Scale="4" />
+        </ComplexType>
+        <ComplexType Name="FindPartiallyFreePlaceRooms_Result">
+          <Property Name="Type" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Floor" Type="Int32" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="9" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Number" Type="Int32" Nullable="false" />
+          <Property Name="Cost" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="FreePlace" Type="Int32" />
+        </ComplexType>
+        <ComplexType Name="FindResidentByCity_Result">
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Patronymic" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Surname" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Passport" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Number" Type="Int32" Nullable="false" />
+          <Property Name="SettlementDate" Type="DateTime" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="FindResidentByRoom_Result">
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Patronymic" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Surname" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Passport" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="City" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SettlementDate" Type="DateTime" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="Report_Result">
+          <Property Name="Number" Type="Int32" Nullable="false" />
+          <Property Name="CountNum" Type="Int32" />
+          <Property Name="CountDayBusy" Type="Int32" />
+          <Property Name="Cost" Type="Decimal" Precision="19" Scale="4" />
+        </ComplexType>
+        <ComplexType Name="ResidentsView_Result">
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Patronymic" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Surname" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Passport" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="City" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Number" Type="Int32" Nullable="false" />
+          <Property Name="SettlementDate" Type="DateTime" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="RoomsView_Result">
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Number" Type="Int32" Nullable="false" />
+          <Property Name="Type" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Floor" Type="Int32" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="9" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Cost" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="FreePlace" Type="Int32" />
+        </ComplexType>
+        <ComplexType Name="RoomsViewForResident_Result">
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Number" Type="Int32" Nullable="false" />
+        </ComplexType>
+        <EntityType Name="Accommodation">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SettlementDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DepartureDate" Type="DateTime" Precision="0" />
+          <Property Name="IdRoom" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Rooms" Relationship="Self.FK__Accommoda__IdRoo__6477ECF3" FromRole="Accommodation" ToRole="Rooms" />
+        </EntityType>
+        <EntityType Name="Cities">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="City" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Residents" Relationship="Self.FK__Residents__IdCit__5FB337D6" FromRole="Cities" ToRole="Residents" />
+        </EntityType>
+        <EntityType Name="DaysWeek">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Day" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Сleaning" Relationship="Self.FK__Сleaning__IdDay__4AB81AF0" FromRole="DaysWeek" ToRole="Сleaning" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Patronymic" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Surname" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Сleaning" Relationship="Self.FK__Сleaning__IdEmpl__48CFD27E" FromRole="Employee" ToRole="Сleaning" />
+        </EntityType>
+        <EntityType Name="Floors">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Floor" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Rooms" Relationship="Self.FK__Rooms__IdFloor__5812160E" FromRole="Floors" ToRole="Rooms" />
+          <NavigationProperty Name="Сleaning" Relationship="Self.FK__Сleaning__IdFloo__49C3F6B7" FromRole="Floors" ToRole="Сleaning" />
+        </EntityType>
+        <EntityType Name="Residents">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Passport" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Patronymic" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Surname" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IdCity" Type="Int32" Nullable="false" />
+          <Property Name="SettlementDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="IdRoom" Type="Int32" Nullable="false" />
+          <Property Name="IsEvicted" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Cities" Relationship="Self.FK__Residents__IdCit__5FB337D6" FromRole="Residents" ToRole="Cities" />
+          <NavigationProperty Name="Rooms" Relationship="Self.FK__Residents__IdRoo__60A75C0F" FromRole="Residents" ToRole="Rooms" />
+        </EntityType>
+        <EntityType Name="Rooms">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdRoomType" Type="Int32" Nullable="false" />
+          <Property Name="IdFloor" Type="Int32" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="9" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Number" Type="Int32" Nullable="false" />
+          <Property Name="FreePlace" Type="Int32" />
+          <NavigationProperty Name="Accommodation" Relationship="Self.FK__Accommoda__IdRoo__6477ECF3" FromRole="Rooms" ToRole="Accommodation" />
+          <NavigationProperty Name="Floors" Relationship="Self.FK__Rooms__IdFloor__5812160E" FromRole="Rooms" ToRole="Floors" />
+          <NavigationProperty Name="Residents" Relationship="Self.FK__Residents__IdRoo__60A75C0F" FromRole="Rooms" ToRole="Residents" />
+          <NavigationProperty Name="RoomTypes" Relationship="Self.FK__Rooms__IdRoomTyp__571DF1D5" FromRole="Rooms" ToRole="RoomTypes" />
+        </EntityType>
+        <EntityType Name="RoomTypes">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CountPlace" Type="Int32" Nullable="false" />
+          <Property Name="Cost" Type="Decimal" Precision="19" Scale="4" />
+          <NavigationProperty Name="Rooms" Relationship="Self.FK__Rooms__IdRoomTyp__571DF1D5" FromRole="RoomTypes" ToRole="Rooms" />
+        </EntityType>
+        <EntityType Name="Сleaning">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdEmployee" Type="Int32" Nullable="false" />
+          <Property Name="IdFloor" Type="Int32" Nullable="false" />
+          <Property Name="IdDay" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="DaysWeek" Relationship="Self.FK__Сleaning__IdDay__4AB81AF0" FromRole="Сleaning" ToRole="DaysWeek" />
+          <NavigationProperty Name="Employee" Relationship="Self.FK__Сleaning__IdEmpl__48CFD27E" FromRole="Сleaning" ToRole="Employee" />
+          <NavigationProperty Name="Floors" Relationship="Self.FK__Сleaning__IdFloo__49C3F6B7" FromRole="Сleaning" ToRole="Floors" />
+        </EntityType>
+        <Association Name="FK__Accommoda__IdRoo__6477ECF3">
+          <End Role="Rooms" Type="Self.Rooms" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Accommodation" Type="Self.Accommodation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rooms">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Accommodation">
+              <PropertyRef Name="IdRoom" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Residents__IdCit__5FB337D6">
+          <End Role="Cities" Type="Self.Cities" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Residents" Type="Self.Residents" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cities">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Residents">
+              <PropertyRef Name="IdCity" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Сleaning__IdDay__4AB81AF0">
+          <End Role="DaysWeek" Type="Self.DaysWeek" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Сleaning" Type="Self.Сleaning" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DaysWeek">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Сleaning">
+              <PropertyRef Name="IdDay" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Сleaning__IdEmpl__48CFD27E">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Сleaning" Type="Self.Сleaning" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Сleaning">
+              <PropertyRef Name="IdEmployee" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Rooms__IdFloor__5812160E">
+          <End Role="Floors" Type="Self.Floors" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Rooms" Type="Self.Rooms" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Floors">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Rooms">
+              <PropertyRef Name="IdFloor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Сleaning__IdFloo__49C3F6B7">
+          <End Role="Floors" Type="Self.Floors" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Сleaning" Type="Self.Сleaning" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Floors">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Сleaning">
+              <PropertyRef Name="IdFloor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Residents__IdRoo__60A75C0F">
+          <End Role="Rooms" Type="Self.Rooms" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Residents" Type="Self.Residents" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rooms">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Residents">
+              <PropertyRef Name="IdRoom" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Rooms__IdRoomTyp__571DF1D5">
+          <End Role="RoomTypes" Type="Self.RoomTypes" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Rooms" Type="Self.Rooms" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RoomTypes">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Rooms">
+              <PropertyRef Name="IdRoomType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="HostelEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Accommodation" EntityType="Self.Accommodation" />
+          <EntitySet Name="Cities" EntityType="Self.Cities" />
+          <EntitySet Name="DaysWeek" EntityType="Self.DaysWeek" />
+          <EntitySet Name="Employee" EntityType="Self.Employee" />
+          <EntitySet Name="Floors" EntityType="Self.Floors" />
+          <EntitySet Name="Residents" EntityType="Self.Residents" />
+          <EntitySet Name="Rooms" EntityType="Self.Rooms" />
+          <EntitySet Name="RoomTypes" EntityType="Self.RoomTypes" />
+          <EntitySet Name="Сleaning" EntityType="Self.Сleaning" />
+          <AssociationSet Name="FK__Accommoda__IdRoo__6477ECF3" Association="Self.FK__Accommoda__IdRoo__6477ECF3">
+            <End Role="Rooms" EntitySet="Rooms" />
+            <End Role="Accommodation" EntitySet="Accommodation" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Residents__IdCit__5FB337D6" Association="Self.FK__Residents__IdCit__5FB337D6">
+            <End Role="Cities" EntitySet="Cities" />
+            <End Role="Residents" EntitySet="Residents" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Сleaning__IdDay__4AB81AF0" Association="Self.FK__Сleaning__IdDay__4AB81AF0">
+            <End Role="DaysWeek" EntitySet="DaysWeek" />
+            <End Role="Сleaning" EntitySet="Сleaning" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Сleaning__IdEmpl__48CFD27E" Association="Self.FK__Сleaning__IdEmpl__48CFD27E">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="Сleaning" EntitySet="Сleaning" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Rooms__IdFloor__5812160E" Association="Self.FK__Rooms__IdFloor__5812160E">
+            <End Role="Floors" EntitySet="Floors" />
+            <End Role="Rooms" EntitySet="Rooms" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Сleaning__IdFloo__49C3F6B7" Association="Self.FK__Сleaning__IdFloo__49C3F6B7">
+            <End Role="Floors" EntitySet="Floors" />
+            <End Role="Сleaning" EntitySet="Сleaning" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Residents__IdRoo__60A75C0F" Association="Self.FK__Residents__IdRoo__60A75C0F">
+            <End Role="Rooms" EntitySet="Rooms" />
+            <End Role="Residents" EntitySet="Residents" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Rooms__IdRoomTyp__571DF1D5" Association="Self.FK__Rooms__IdRoomTyp__571DF1D5">
+            <End Role="RoomTypes" EntitySet="RoomTypes" />
+            <End Role="Rooms" EntitySet="Rooms" />
+          </AssociationSet>
+          <FunctionImport Name="AccommodationView" IsComposable="true" ReturnType="Collection(HostelModel.AccommodationView_Result)" />
+          <FunctionImport Name="CitiesForResidentView" IsComposable="true" ReturnType="Collection(HostelModel.CitiesForResidentView_Result)" />
+          <FunctionImport Name="CleaningView" IsComposable="true" ReturnType="Collection(HostelModel.CleaningView_Result)" />
+          <FunctionImport Name="CleaningViewByEmployee" IsComposable="true" ReturnType="Collection(HostelModel.CleaningViewByEmployee_Result)">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="FindEmployeeByDayAndFloor" IsComposable="true" ReturnType="Collection(HostelModel.FindEmployeeByDayAndFloor_Result)">
+            <Parameter Name="id_day" Mode="In" Type="Int32" />
+            <Parameter Name="id_floor" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="FindFreePlaceRooms" IsComposable="true" ReturnType="Collection(HostelModel.FindFreePlaceRooms_Result)" />
+          <FunctionImport Name="FindPartiallyFreePlaceRooms" IsComposable="true" ReturnType="Collection(HostelModel.FindPartiallyFreePlaceRooms_Result)" />
+          <FunctionImport Name="FindResidentByCity" IsComposable="true" ReturnType="Collection(HostelModel.FindResidentByCity_Result)">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="FindResidentByRoom" IsComposable="true" ReturnType="Collection(HostelModel.FindResidentByRoom_Result)">
+            <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="Report" IsComposable="true" ReturnType="Collection(HostelModel.Report_Result)">
+            <Parameter Name="start" Mode="In" Type="DateTime" />
+            <Parameter Name="end" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="ResidentsView" IsComposable="true" ReturnType="Collection(HostelModel.ResidentsView_Result)" />
+          <FunctionImport Name="RoomsView" IsComposable="true" ReturnType="Collection(HostelModel.RoomsView_Result)" />
+          <FunctionImport Name="RoomsViewForResident" IsComposable="true" ReturnType="Collection(HostelModel.RoomsViewForResident_Result)" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище HostelModelContainer" CdmEntityContainer="HostelEntities">
+          <EntitySetMapping Name="Accommodation">
+            <EntityTypeMapping TypeName="HostelModel.Accommodation">
+              <MappingFragment StoreEntitySet="Accommodation">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="SettlementDate" ColumnName="SettlementDate" />
+                <ScalarProperty Name="DepartureDate" ColumnName="DepartureDate" />
+                <ScalarProperty Name="IdRoom" ColumnName="IdRoom" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cities">
+            <EntityTypeMapping TypeName="HostelModel.Cities">
+              <MappingFragment StoreEntitySet="Cities">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="City" ColumnName="City" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DaysWeek">
+            <EntityTypeMapping TypeName="HostelModel.DaysWeek">
+              <MappingFragment StoreEntitySet="DaysWeek">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Day" ColumnName="Day" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employee">
+            <EntityTypeMapping TypeName="HostelModel.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Floors">
+            <EntityTypeMapping TypeName="HostelModel.Floors">
+              <MappingFragment StoreEntitySet="Floors">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Floor" ColumnName="Floor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Residents">
+            <EntityTypeMapping TypeName="HostelModel.Residents">
+              <MappingFragment StoreEntitySet="Residents">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Passport" ColumnName="Passport" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="IdCity" ColumnName="IdCity" />
+                <ScalarProperty Name="SettlementDate" ColumnName="SettlementDate" />
+                <ScalarProperty Name="IdRoom" ColumnName="IdRoom" />
+                <ScalarProperty Name="IsEvicted" ColumnName="IsEvicted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rooms">
+            <EntityTypeMapping TypeName="HostelModel.Rooms">
+              <MappingFragment StoreEntitySet="Rooms">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdRoomType" ColumnName="IdRoomType" />
+                <ScalarProperty Name="IdFloor" ColumnName="IdFloor" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="FreePlace" ColumnName="FreePlace" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RoomTypes">
+            <EntityTypeMapping TypeName="HostelModel.RoomTypes">
+              <MappingFragment StoreEntitySet="RoomTypes">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="CountPlace" ColumnName="CountPlace" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Сleaning">
+            <EntityTypeMapping TypeName="HostelModel.Сleaning">
+              <MappingFragment StoreEntitySet="Сleaning">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="IdEmployee" ColumnName="IdEmployee" />
+                <ScalarProperty Name="IdFloor" ColumnName="IdFloor" />
+                <ScalarProperty Name="IdDay" ColumnName="IdDay" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionName="Хранилище HostelModel.AccommodationView" FunctionImportName="AccommodationView">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HostelModel.AccommodationView_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="SettlementDate" ColumnName="SettlementDate" />
+                <ScalarProperty Name="DepartureDate" ColumnName="DepartureDate" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionName="Хранилище HostelModel.CitiesForResidentView" FunctionImportName="CitiesForResidentView">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HostelModel.CitiesForResidentView_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="City" ColumnName="City" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionName="Хранилище HostelModel.CleaningView" FunctionImportName="CleaningView">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HostelModel.CleaningView_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Floor" ColumnName="Floor" />
+                <ScalarProperty Name="Day" ColumnName="Day" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionName="Хранилище HostelModel.CleaningViewByEmployee" FunctionImportName="CleaningViewByEmployee">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HostelModel.CleaningViewByEmployee_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Floor" ColumnName="Floor" />
+                <ScalarProperty Name="Day" ColumnName="Day" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionName="Хранилище HostelModel.FindEmployeeByDayAndFloor" FunctionImportName="FindEmployeeByDayAndFloor">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HostelModel.FindEmployeeByDayAndFloor_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionName="Хранилище HostelModel.FindFreePlaceRooms" FunctionImportName="FindFreePlaceRooms">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HostelModel.FindFreePlaceRooms_Result">
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Floor" ColumnName="Floor" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionName="Хранилище HostelModel.FindPartiallyFreePlaceRooms" FunctionImportName="FindPartiallyFreePlaceRooms">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HostelModel.FindPartiallyFreePlaceRooms_Result">
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Floor" ColumnName="Floor" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="FreePlace" ColumnName="FreePlace" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionName="Хранилище HostelModel.FindResidentByCity" FunctionImportName="FindResidentByCity">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HostelModel.FindResidentByCity_Result">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Passport" ColumnName="Passport" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="SettlementDate" ColumnName="SettlementDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionName="Хранилище HostelModel.FindResidentByRoom" FunctionImportName="FindResidentByRoom">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HostelModel.FindResidentByRoom_Result">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Passport" ColumnName="Passport" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="SettlementDate" ColumnName="SettlementDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionName="Хранилище HostelModel.Report" FunctionImportName="Report">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HostelModel.Report_Result">
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="CountNum" ColumnName="CountNum" />
+                <ScalarProperty Name="CountDayBusy" ColumnName="CountDayBusy" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionName="Хранилище HostelModel.ResidentsView" FunctionImportName="ResidentsView">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HostelModel.ResidentsView_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Patronymic" ColumnName="Patronymic" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+                <ScalarProperty Name="Passport" ColumnName="Passport" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="SettlementDate" ColumnName="SettlementDate" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionName="Хранилище HostelModel.RoomsView" FunctionImportName="RoomsView">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HostelModel.RoomsView_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Floor" ColumnName="Floor" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Cost" ColumnName="Cost" />
+                <ScalarProperty Name="FreePlace" ColumnName="FreePlace" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionName="Хранилище HostelModel.RoomsViewForResident" FunctionImportName="RoomsViewForResident">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="HostelModel.RoomsViewForResident_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

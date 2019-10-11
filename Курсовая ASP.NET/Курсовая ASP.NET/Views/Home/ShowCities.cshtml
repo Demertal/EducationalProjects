@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "Показать города";
+}
+
+<table class="table table-bordered table-hover">
+    <tr>
+        <th>
+            Города
+        </th>
+    </tr>
+
+    @foreach (var item in ViewBag.Cities) {
+        <tr>
+            <td>
+                @item.City
+            </td>
+        </tr>
+    }
+
+</table>

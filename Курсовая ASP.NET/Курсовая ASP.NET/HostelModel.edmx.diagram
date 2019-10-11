@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ed59a92bca2548eab26b7b4b4cf9cf82" Name="Diagram1">
+        <EntityTypeShape EntityType="HostelModel.Accommodation" Width="1.5" PointX="5.25" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HostelModel.Cities" Width="1.5" PointX="6" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="HostelModel.DaysWeek" Width="1.5" PointX="3.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HostelModel.Employee" Width="1.5" PointX="3.75" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="HostelModel.Floors" Width="1.5" PointX="0.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HostelModel.Residents" Width="1.5" PointX="8.25" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HostelModel.Rooms" Width="1.5" PointX="3" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="HostelModel.RoomTypes" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HostelModel.Сleaning" Width="1.5" PointX="6" PointY="4.625" IsExpanded="true" />
+        <AssociationConnector Association="HostelModel.FK__Accommoda__IdRoo__6477ECF3" ManuallyRouted="false" />
+        <AssociationConnector Association="HostelModel.FK__Residents__IdCit__5FB337D6" ManuallyRouted="false" />
+        <AssociationConnector Association="HostelModel.FK__Сleaning__IdDay__4AB81AF0" ManuallyRouted="false" />
+        <AssociationConnector Association="HostelModel.FK__Сleaning__IdEmpl__48CFD27E" ManuallyRouted="false" />
+        <AssociationConnector Association="HostelModel.FK__Rooms__IdFloor__5812160E" ManuallyRouted="false" />
+        <AssociationConnector Association="HostelModel.FK__Сleaning__IdFloo__49C3F6B7" ManuallyRouted="false" />
+        <AssociationConnector Association="HostelModel.FK__Residents__IdRoo__60A75C0F" ManuallyRouted="false" />
+        <AssociationConnector Association="HostelModel.FK__Rooms__IdRoomTyp__571DF1D5" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
